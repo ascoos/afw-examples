@@ -30,6 +30,7 @@
  * @since PHP 8.2.0
  */
 declare(strict_types=1);
-require_once "[AFW PATH]/autoloader.php";
+$path = str_replace('/afw-examples', '', str_replace('\\', '/', __DIR__));
+require_once($path.'/afw/autoload.php');
 
 ?>
