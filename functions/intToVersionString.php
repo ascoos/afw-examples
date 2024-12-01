@@ -29,7 +29,7 @@
  * 
  * @since PHP 8.2
  */
-require "../autoload.php";
+require_once "../autoload.php";
 
 // Testing the function
 echo intToVersionString(10000, 'X.XX.XX')."<br>";                   // Outputs: 1.00.00
