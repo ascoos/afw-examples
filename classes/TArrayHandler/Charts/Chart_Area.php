@@ -20,7 +20,7 @@
  * @subpackage         	: Creates an area chart from the array data.
  * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Area.php
  * @fileNo             	: 
- * @version            	: 24.0.2
+ * @version            	: 24.0.3
  * @created            	: 2024-12-02 07:00:00 UTC+3 
  * @updated            	:  
  * @author             	: Drogidis Christos
