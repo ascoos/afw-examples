@@ -18,11 +18,11 @@
  *
  * @package            	: ASCOOS FRAMEWORK Examples
  * @subpackage         	: Converts a version string format to an integer using a mask.
- * @source             	: [EXAMPLES]/functions/versionStringToInt.php
+ * @source             	: afw-examples/functions/versionStringToInt.php
  * @fileNo             	: 
  * @version            	: 24.0.2
- * @created            	: 2024-07-01 20:00:00 UTC+3 
- * @updated            	: 2024-11-30 07:00:00 UTC+3 
+ * @created            	: 2024-12-02 07:00:00 UTC+3  
+ * @updated            	: 
  * @author             	: Drogidis Christos
  * @authorSite         	: www.alexsoft.gr
  * @license 			: AGL-F
