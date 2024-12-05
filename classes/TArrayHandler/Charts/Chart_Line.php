@@ -17,8 +17,8 @@
  ************************************************************************************
  *
  * @package            	: ASCOOS FRAMEWORK Examples
- * @subpackage         	: Creates a Gantt chart from the array data.
- * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Gantt.php
+ * @subpackage         	: Creates a line chart from the array data.
+ * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Line.php
  * @fileNo             	: 
  * @version            	: 24.0.4
  * @created            	: 2024-12-05 07:00:00 UTC+3 
@@ -28,56 +28,59 @@
  * @license 			: AGL-F
  * 
  * @since PHP 8.2
- */
+ */ 
 require_once '../../../autoload.php';
 require_once "$afw_path/extras/arrays/TArrayGraphHandler.php";
 
 use ASCOOS\FRAMEWORK\Arrays\Extras\Graphs\TArrayGraphHandler;
 
 /*
-<ENGLISH>   Data for the Gantt chart
-<GREEK>     Δεδομένα για το διάγραμμα Gantt
+<ENGLISH>   Change this value to switch between one-dimensional and multidimensional data
+<GREEK>     Αλλαγή αυτής της τιμής για να εναλλάσσεις μεταξύ μονοδιάστατων και πολυδιάστατων δεδομένων
 */
-$tasks = [
-    ['Εργασία 1', '2024-01-01', '2024-01-10'],
-    ['任务 1', '2024-02-01', '2024-12-31'],
-    ['任務 1', '2024-03-15', '2024-04-15'],
-    ['タスク 1', '2024-05-01', '2024-10-01'],
-    ['Aufgabe 1',    '2024-06-10', '2024-06-20'],
-    ['Tarefa 1',   '2024-07-01', '2025-01-01'],
-    ['Tarea 1', '2024-08-05', '2024-08-15'],
-    ['Задание 1', '2024-09-01', '2024-12-01'],
-    ['Compito 1',   '2024-10-10', '2024-11-10'], 
-    ['Taak 1', '2024-11-15', '2025-02-15'],
-    ['Úloha 1', '2024-12-20', '2024-12-25'],
-    ['1 užduotis', '2025-01-01', '2025-07-01'],
-    ['Görev 1', '2025-02-01', '2025-03-01']
-];
+$multidimensional = true;  
 
-
-/*
-<ENGLISH>   Path to font file
-<GREEK>     Διαδρομή προς το αρχείο γραμματοσειράς
-*/
-$fontPath = $afw_examples_fonts.'/Murecho/Murecho-Regular.ttf';
+if (!$multidimensional) {
+    /*
+    <ENGLISH>   Data for one-dimensional diagram
+    <GREEK>     Δεδομένα για μονοδιάστατο διάγραμμα
+    */
+    $arrayData = [10, 20, 15, 25, 30, 35, 40, 45, 50];
+} else {
+    /*
+    <ENGLISH>   Data for a multidimensional diagram
+    <GREEK>     Δεδομένα για πολυδιάστατο διάγραμμα
+    */
+    $arrayData = [
+        ['x' => 1, 'y' => 10],
+        ['x' => 2, 'y' => 20],
+        ['x' => 3, 'y' => 15],
+        ['x' => 4, 'y' => 25],
+        ['x' => 5, 'y' => 30]
+    ];
+}
 
 /*
 <ENGLISH>   Create an object with data
 <GREEK>     Δημιουργία αντικειμένου με δεδομένα
 */
-$objArrayGraph = new TArrayGraphHandler($tasks, ['width'=>1000, 'height'=>600]);
-
+$objArrayGraph = new TArrayGraphHandler($arrayData, ['width' => 800, 'height' => 600]);
 
 /*
-<ENGLISH>   Create a Gantt diagram and save to a file.
-<GREEK>     Δημιουργία διαγράμματος Gantt και αποθήκευση σε αρχείο
-*/  
-$objArrayGraph->createGanttChart('gantt_chart.png', $fontPath);
+<ENGLISH>   Create a line chart and save to a file.
+<GREEK>     Δημιουργία γραφήματος γραμμών και αποθήκευση σε αρχείο
+*/
+if (!$multidimensional) {
+    $objArrayGraph->createLineChart('line_chart_single.png');
+} else {
+    $objArrayGraph->createLineChart('line_chart_multi.png');
+}
+
+$objArrayGraph->Free($objArrayGraph);
 
 /*
 <ENGLISH> Display the image to the user
 <GREEK> Εμφάνιση της εικόνας στον χρήστη
 */
-echo '<img src="gantt_chart.png" alt="Gantt Chart">';
-
+echo $multidimensional ? '<img src="line_chart_multi.png" alt="Line Chart Multi">' : '<img src="line_chart_single.png" alt="Line Chart Single">';
 ?>

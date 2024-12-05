@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  *   __ _  ___  ___ ___   ___   ___     ____ _ __ ___   ___
  *  / _` |/  / / __/ _ \ / _ \ /  /    / __/| '_ ` _ \ /  /
@@ -17,8 +17,8 @@
  ************************************************************************************
  *
  * @package            	: ASCOOS FRAMEWORK Examples
- * @subpackage         	: Creates a bar chart from the array data.
- * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Bar.php
+ * @subpackage         	: Creates a correlation matrix from the array data.
+ * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Correlation_Matrix.php
  * @fileNo             	: 
  * @version            	: 24.0.4
  * @created            	: 2024-12-05 07:00:00 UTC+3 
@@ -34,64 +34,55 @@ require_once "$afw_path/extras/arrays/TArrayGraphHandler.php";
 
 use ASCOOS\FRAMEWORK\Arrays\Extras\Graphs\TArrayGraphHandler;
 
-
-// 
+ 
 /*
 <ENGLISH>   Change this value to switch between one-dimensional and multidimensional data
 <GREEK>     Αλλαγή αυτής της τιμής για να εναλλάσσεις μεταξύ μονοδιάστατων και πολυδιάστατων δεδομένων
 */
-$multidimensional = true;  
+$multidimensional = true;
 
-
-if ($multidimensional) {
+if (!$multidimensional) {
     /*
-    <ENGLISH>   Data for a multidimensional diagram
-    <GREEK>     Δεδομένα για πολυδιάστατο διάγραμμα
+    <ENGLISH> Data for correlation matrix (Non-multidimensional data)
+    <GREEK> Δεδομένα για τον πίνακα συντελεστών συσχέτισης (Μη πολυδιάστατα δεδομένα)
     */
-    $data = [
-        'Français' => [40, 20, 30],  // Population, GDP per capita, GDP
-        'Português' => [30, 25, 35],
-        'Россия' => [60, 40, 50],
-        'English' => [50, 30, 40],
-        'Ελληνικά' => [70, 50, 60]
-    ];
+    $arrayData = [1, 2, 3, 4, 5];
 
-    $filename = 'bar_multidimensional_chart.png';
-    $img_alt = 'Bar Multidimensional Chart';     
+    $filename = 'correlation_single_matrix.png';
+    $img_alt = 'Correlation Matrix';
 } else {
     /*
-    <ENGLISH>   Data for one-dimensional diagram
-    <GREEK>     Δεδομένα για μονοδιάστατο διάγραμμα
+    <ENGLISH> Data for correlation matrix (Example of complex multi-feature data with fluctuating values)
+    <GREEK> Δεδομένα για τον πίνακα συντελεστών συσχέτισης (Παράδειγμα σύνθετων δεδομένων πολλαπλών χαρακτηριστικών με κυμαινόμενες τιμές)
     */
-    $data = [
-        'Français' => 40,
-        'Português' => 30,
-        'Россия' => 60,
-        'English' => 50,    
-        'Ελληνικά' => 70
+    $arrayData = [
+        [4, 9, 2, 7, 3, 5, 6, 8, 1, 10],
+        [10, 5, 6, 3, 8, 2, 7, 4, 9, 1],
+        [1, 4, 7, 2, 9, 6, 3, 10, 5, 8],
+        [8, 3, 6, 5, 10, 1, 2, 7, 9, 4],
+        [2, 10, 3, 6, 4, 9, 5, 1, 8, 7],
+        [7, 2, 9, 4, 1, 8, 3, 5, 6, 10],
+        [5, 7, 1, 8, 6, 3, 10, 2, 4, 9],
+        [3, 1, 8, 9, 7, 4, 2, 6, 5, 10],
+        [9, 6, 4, 10, 2, 5, 8, 3, 7, 1],
+        [6, 8, 10, 1, 5, 7, 4, 9, 2, 3]
     ];
 
-    $filename = 'bar_chart.png';
-    $img_alt = 'Bar Chart';    
+    $filename = 'correlation_multidimensional_matrix.png';
+    $img_alt = 'Correlation Multidimensional Matrix';
 }
 
 /*
-<ENGLISH>   Path to font file
-<GREEK>     Διαδρομή προς το αρχείο γραμματοσειράς
+<ENGLISH> Create an object with data
+<GREEK> Δημιουργία αντικειμένου με δεδομένα
 */
-$fontPath = $afw_examples_fonts.'/Moderustic/Moderustic-Regular.ttf';
+$objArrayGraph = new TArrayGraphHandler($arrayData, ['width'=>800, 'height'=>600]);
 
 /*
-<ENGLISH>   Create an object with data
-<GREEK>     Δημιουργία αντικειμένου με δεδομένα
+<ENGLISH> Create a correlation matrix and save to a file
+<GREEK> Δημιουργία πίνακα συντελεστών συσχέτισης και αποθήκευση σε αρχείο
 */
-$objArrayGraph = new TArrayGraphHandler($data, ['width'=>800, 'height'=>600]);
-
-/*
-<ENGLISH>   Create a diagram and save to a file.
-<GREEK>     Δημιουργία διαγράμματος και αποθήκευση σε αρχείο
-*/
-$objArrayGraph->createBarChart($filename, $fontPath);
+$objArrayGraph->createCorrelationMatrix($filename);
 $objArrayGraph->Free($objArrayGraph);
 
 /*

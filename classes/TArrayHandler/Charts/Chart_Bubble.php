@@ -54,7 +54,7 @@ $sizeArray = [10, 20, 130, 40, 50, 30, 25, 35, 45, 55, 65, 75, 85, 95, 100, 20, 
 <ENGLISH>   Create an object with data
 <GREEK>     Δημιουργία αντικειμένου με δεδομένα
 */
-$objArrayGraph = new TArrayGraphHandler($arrayData);
+$objArrayGraph = new TArrayGraphHandler($arrayData, ['width'=>800, 'height'=>600]);
 
 /**
  * <ENGLISH>   Create a bubble diagram and save to a file
@@ -70,7 +70,6 @@ $objArrayGraph = new TArrayGraphHandler($arrayData);
  *                                 <Greek> Το ποσοστό των φυσαλίδων που θα τοποθετηθεί στην αρχή των αξόνων.
  */
 $objArrayGraph->createBubbleChart($otherArray, $sizeArray, 'bubble_chart.png', 0.3);
-
 $objArrayGraph->Free($objArrayGraph);
 
 /*
