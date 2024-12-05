@@ -34,6 +34,7 @@ require_once "$afw_path/extras/arrays/TArrayGraphHandler.php";
 
 use ASCOOS\FRAMEWORK\Arrays\Extras\Graphs\TArrayGraphHandler;
 
+
 /*
 <ENGLISH> Data for Bubble diagram
 <GREEK> Δεδομένα για το διάγραμμα Bubble
@@ -44,7 +45,7 @@ $arrayData = [
     [11, 25, 0.6], [12, 35, 0.4], [13, 45, 0.2], [14, 55, 0.3], [15, 65, 0.7],
     [16, 75, 0.5], [17, 85, 0.9], [18, 95, 0.1], [19, 105, 0.6], [20, 115, 0.3],
     [21, 125, 0.2], [22, 135, 0.4], [23, 145, 0.7], [24, 155, 0.5], [25, 165, 0.8],
-    [26, 175, 0.9], [27, 185, 0.3], [28, 195, 0.6], [29, 205, 0.1], [30, 215, 0.4],
+    [26, 175, 0.9], [27, 185, 0.3], [28, 195, 0.6], [29, 205, 0.1], [30, 215, 0.4]
 ];
 $otherArray = [2, 4, 16, 8, 10, 6, 12, 14, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60];
 $sizeArray = [10, 20, 130, 40, 50, 30, 25, 35, 45, 55, 65, 75, 85, 95, 100, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90];
@@ -70,10 +71,10 @@ $objArrayGraph = new TArrayGraphHandler($arrayData);
  */
 $objArrayGraph->createBubbleChart($otherArray, $sizeArray, 'bubble_chart.png', 0.3);
 
+$objArrayGraph->Free($objArrayGraph);
+
 /*
 <ENGLISH> Display the image to the user
 <GREEK> Εμφάνιση της εικόνας στον χρήστη
 */
 echo '<img src="bubble_chart.png" alt="Bubble Chart">';
-
-?>
