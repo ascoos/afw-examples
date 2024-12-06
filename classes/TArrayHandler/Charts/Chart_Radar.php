@@ -17,8 +17,8 @@
  ************************************************************************************
  *
  * @package            	: ASCOOS FRAMEWORK Examples
- * @subpackage         	: Creates a Gantt chart from the array data.
- * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Gantt.php
+ * @subpackage         	: Creates a radar chart from the array data.
+ * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Radar.php
  * @fileNo             	: 
  * @version            	: 24.0.4
  * @created            	: 2024-12-05 07:00:00 UTC+3 
@@ -28,53 +28,53 @@
  * @license 			: AGL-F
  * 
  * @since PHP 8.2
- */
+ */ 
 require_once '../../../autoload.php';
 require_once "$afw_path/extras/arrays/TArrayGraphHandler.php";
 
 use ASCOOS\FRAMEWORK\Arrays\Extras\Graphs\TArrayGraphHandler;
 
 /*
-<ENGLISH>   Data for the Gantt chart
-<GREEK>     Δεδομένα για το διάγραμμα Gantt
+<ENGLISH>   Data for the radar chart
+<GREEK>     Δεδομένα για το διάγραμμα ραντάρ
 */
-$tasks = [
-    ['Εργασία 1', '2024-01-01', '2024-01-10'],
-    ['任务 1', '2024-02-01', '2024-12-31'],
-    ['任務 1', '2024-03-15', '2024-04-15'],
-    ['タスク 1', '2024-05-01', '2024-10-01'],
-    ['Aufgabe 1', '2024-06-10', '2024-06-20'],
-    ['Tarefa 1', '2024-07-01', '2025-01-01'],
-    ['Tarea 1', '2024-08-05', '2024-08-15'],
-    ['Задание 1', '2024-09-01', '2024-12-01'],
-    ['Compito 1', '2024-10-10', '2024-11-10'],
-    ['Taak 1', '2024-11-15', '2025-02-15'],
-    ['Úloha 1', '2024-12-20', '2024-12-25'],
-    ['1 užduotis', '2025-01-01', '2025-07-01'],
-    ['Görev 1', '2025-02-01', '2025-03-01']
+$arrayData = [
+    'A' => [50, 60, 70, 80],
+    'B' => [70, 80, 90, 100],
+    'C' => [90, 70, 50, 60],
+    'D' => [60, 50, 40, 30]  // Ακραία τιμή
 ];
 
 /*
-<ENGLISH>   Path to font file
-<GREEK>     Διαδρομή προς το αρχείο γραμματοσειράς
+<ENGLISH>   Labels for the radar chart
+<GREEK>     Ετικέτες για το διάγραμμα ραντάρ
 */
-$fontPath = $afw_examples_fonts.'/Murecho/Murecho-Regular.ttf';
+$labels = ['Parameter 1', 'Parameter 2', 'Parameter 3', 'Very Long Parameter 4 That Exceeds Limit'];
 
 /*
 <ENGLISH>   Create an object with data
 <GREEK>     Δημιουργία αντικειμένου με δεδομένα
 */
-$objArrayGraph = new TArrayGraphHandler($tasks, ['width' => 1000, 'height' => 600]);
+$objArrayGraph = new TArrayGraphHandler($arrayData, [
+    'width' => 600, 
+    'height' => 600, 
+    'fontPath' => $afw_examples_fonts.'/Murecho/Murecho-Regular.ttf', 
+    'backgroundColorIndex' => 1, // 0=Black, 1=White, 2=Red, 3=Green, 4=Blue, 5=Yellow, 6=Cyan, 7=Magenta, 8=Maroon, 9=Dark Green, 10=Navy, 11=Olive, 12=Purple, 13=Teal, 14=Orange, 15=Pink, 16=Indigo, 17=Deep Pink
+    'lineColorIndex' => 0, // Δείκτης χρώματος για τις γραμμές του πλέγματος
+    'dataColorIndices' => [2, 3, 4, 5], // Δείκτες χρωμάτων για τα δεδομένα
+    'labels' => $labels, // Προαιρετικές ετικέτες για τα τμήματα
+    'labelsPerRow' => 3, // Ρύθμιση αριθμού ετικετών ανά σειρά
+    'showAxes' => true // Προαιρετική εμφάνιση άξονων
+]);
 
 /*
-<ENGLISH>   Create a Gantt diagram and save to a file.
-<GREEK>     Δημιουργία διαγράμματος Gantt και αποθήκευση σε αρχείο
+<ENGLISH>   Create a radar chart and save to a file.
+<GREEK>     Δημιουργία διαγράμματος ραντάρ και αποθήκευση σε αρχείο
 */
-$objArrayGraph->createGanttChart('gantt_chart.png', $fontPath);
+$objArrayGraph->createRadarChart('radar_chart.png');
 
 /*
 <ENGLISH> Display the image to the user
 <GREEK> Εμφάνιση της εικόνας στον χρήστη
 */
-echo '<img src="gantt_chart.png" alt="Gantt Chart">';
-?>
+echo '<img src="radar_chart.png" alt="Radar Chart">';

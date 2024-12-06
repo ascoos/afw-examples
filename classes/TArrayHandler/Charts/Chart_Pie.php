@@ -54,7 +54,6 @@ if (!$multidimensional) {
         '中文 （简体）' => 30,   // Chinese (Simplified)
         '中文 （繁體）' => 40,   // Chinese (Traditional)      
         '日本語' => 35          // Japanese
-
     ];
 } else {
     /*
@@ -73,25 +72,27 @@ if (!$multidimensional) {
 }
 
 /*
-<ENGLISH>   Path to font file
-<GREEK>     Διαδρομή προς το αρχείο γραμματοσειράς
-*/
-$fontPath = $afw_examples_fonts.'/Murecho/Murecho-Regular.ttf';
-
-/*
 <ENGLISH>   Create an object with data
 <GREEK>     Δημιουργία αντικειμένου με δεδομένα
 */
-$objArrayGraph = new TArrayGraphHandler($arrayData, ['width' => 800, 'height' => 600, '3D' => true]);
+$objArrayGraph = new TArrayGraphHandler($arrayData, [
+    'width' => 800, 
+    'height' => 600, 
+    '3D' => true, 
+    'fontPath' => $afw_examples_fonts.'/Murecho/Murecho-Regular.ttf', 
+    'backgroundColorIndex' => 1, // 0=Black, 1=White, 2=Red, 3=Green, 4=Blue, 5=Yellow, 6=Cyan, 7=Magenta, 8=Maroon, 9=Dark Green, 10=Navy, 11=Olive, 12=Purple, 13=Teal, 14=Orange, 15=Pink, 16=Indigo, 17=Deep Pink
+    'colorIndices' => range(2, 29) // Δείκτες χρωμάτων για τις φέτες
+]);
+
 
 /*
 <ENGLISH>   Create a pie chart and save to a file.
 <GREEK>     Δημιουργία διαγράμματος πίτας και αποθήκευση σε αρχείο
 */
 if (!$multidimensional) {
-    $objArrayGraph->createPieChart('pie_chart_single.png', $fontPath);
+    $objArrayGraph->createPieChart('pie_chart_single.png');
 } else {
-    $objArrayGraph->createPieChart('pie_chart_multi.png', $fontPath);
+    $objArrayGraph->createPieChart('pie_chart_multi.png');
 }
 
 $objArrayGraph->Free($objArrayGraph);
@@ -102,5 +103,4 @@ $objArrayGraph->Free($objArrayGraph);
 */
 echo $multidimensional ? '<img src="pie_chart_multi.png" alt="Pie Chart Multi">' : '<img src="pie_chart_single.png" alt="Pie Chart Single">';
 
-
-
+?>

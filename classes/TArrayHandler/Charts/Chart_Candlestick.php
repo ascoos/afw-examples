@@ -21,7 +21,7 @@
  * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Candlestick.php
  * @fileNo             	: 
  * @version            	: 24.0.4
- * @created            	: 2024-12-02 07:00:00 UTC+3 
+ * @created            	: 2024-12-05 07:00:00 UTC+3 
  * @updated            	:  
  * @author             	: Drogidis Christos
  * @authorSite         	: www.alexsoft.gr
@@ -35,6 +35,7 @@ require_once "$afw_path/extras/arrays/TArrayGraphHandler.php";
 use ASCOOS\FRAMEWORK\Arrays\Extras\Graphs\TArrayGraphHandler;
 
 
+
 /*
 <ENGLISH>   OHLC data for the candlestick chart.
 <GREEK>     Δεδομένα OHLC για το διάγραμμα κηροπηγίων
@@ -45,19 +46,30 @@ $ohlcData = [
     ['open' => 28, 'high' => 35, 'low' => 25, 'close' => 32],
     ['open' => 32, 'high' => 40, 'low' => 30, 'close' => 38],
     ['open' => 28, 'high' => 35, 'low' => 25, 'close' => 32],
-    ['open' => 42, 'high' => 50, 'low' => 10, 'close' => 27]
+    ['open' => 42, 'high' => 50, 'low' => 10, 'close' => 27],
+    ['open' => 27, 'high' => 33, 'low' => 22, 'close' => 30],
+    ['open' => 30, 'high' => 36, 'low' => 24, 'close' => 35],
+    ['open' => 35, 'high' => 40, 'low' => 28, 'close' => 38],
+    ['open' => 38, 'high' => 45, 'low' => 32, 'close' => 43],
+    ['open' => 43, 'high' => 50, 'low' => 40, 'close' => 47],
+    ['open' => 47, 'high' => 55, 'low' => 45, 'close' => 53]
 ];
-
 
 /*
 <ENGLISH>   Create an object with data
 <GREEK>     Δημιουργία αντικειμένου με δεδομένα
 */
-$graphHandler = new TArrayGraphHandler($ohlcData);
-
+$graphHandler = new TArrayGraphHandler($ohlcData, [
+    'width' => 800, 
+    'height' => 600, 
+    'backgroundColorIndex' => 1,  // 0=Black, 1=White, 2=Red, 3=Green, 4=Blue, 5=Yellow, 6=Cyan, 7=Magenta, 8=Maroon, 9=Dark Green, 10=Navy, 11=Olive, 12=Purple, 13=Teal, 14=Orange, 15=Pink, 16=Indigo, 17=Deep Pink
+    'upColorIndex' => 3,          // 0=Black, 1=White, 2=Red, 3=Green, 4=Blue, 5=Yellow, 6=Cyan, 7=Magenta, 8=Maroon, 9=Dark Green, 10=Navy, 11=Olive, 12=Purple, 13=Teal, 14=Orange, 15=Pink, 16=Indigo, 17=Deep Pink
+    'downColorIndex' => 2,        // 0=Black, 1=White, 2=Red, 3=Green, 4=Blue, 5=Yellow, 6=Cyan, 7=Magenta, 8=Maroon, 9=Dark Green, 10=Navy, 11=Olive, 12=Purple, 13=Teal, 14=Orange, 15=Pink, 16=Indigo, 17=Deep Pink
+    'borderColorIndex' => 0       // 0=Black, 1=White, 2=Red, 3=Green, 4=Blue, 5=Yellow, 6=Cyan, 7=Magenta, 8=Maroon, 9=Dark Green, 10=Navy, 11=Olive, 12=Purple, 13=Teal, 14=Orange, 15=Pink, 16=Indigo, 17=Deep Pink
+]);
 
 /*
-<ENGLISH>   CrCreate a candlestick chart and save to a file
+<ENGLISH>   Create a candlestick chart and save to a file
 <GREEK>     Δημιουργία διαγράμματος κηροπηγίων και αποθήκευση σε αρχείο
 */
 $graphHandler->createCandlestickChart('candlestick_chart.png');
@@ -67,5 +79,4 @@ $graphHandler->createCandlestickChart('candlestick_chart.png');
 <GREEK> Εμφάνιση της εικόνας στον χρήστη
 */
 echo '<img src="candlestick_chart.png" alt="Candlestick Chart">';
-
 ?>

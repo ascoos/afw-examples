@@ -21,7 +21,7 @@
  * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Area.php
  * @fileNo             	: 
  * @version            	: 24.0.4
- * @created            	: 2024-12-02 07:00:00 UTC+3 
+ * @created            	: 2024-12-05 07:00:00 UTC+3 
  * @updated            	:  
  * @author             	: Drogidis Christos
  * @authorSite         	: www.alexsoft.gr
@@ -34,6 +34,7 @@ require_once "$afw_path/extras/arrays/TArrayGraphHandler.php";
 
 use ASCOOS\FRAMEWORK\Arrays\Extras\Graphs\TArrayGraphHandler;
 
+
 $multidimensional = true;
 
 if (!$multidimensional) {
@@ -43,20 +44,8 @@ if (!$multidimensional) {
     */ 
     $arrayData = [10, 20, 30, 40, 50];
 
-    $objArrayGraph = new TArrayGraphHandler($arrayData);
-
-    /*
-    <ENGLISH> Create an area diagram and save to a file
-    <GREEK> Δημιουργία διαγράμματος περιοχής και αποθήκευση σε αρχείο
-    */   
-    $objArrayGraph->createAreaChart('area_chart_simple.png');
-
-    /*
-    <ENGLISH> Display the image to the user
-    <GREEK> Εμφάνιση της εικόνας στον χρήστη
-    */
-    echo '<img src="area_chart_simple.png" alt="Area Chart">';
-
+    $filename = 'area_chart_simple.png';
+    $img_alt = 'Area Chart';
 } else {
     /*
     <ENGLISH> Data for the area chart
@@ -67,23 +56,39 @@ if (!$multidimensional) {
         [2, 15],
         [3, 20],
         [4, 25],
-        [5, 30]
+        [5, 30],
+        [6, 40],
+        [7, 35],
+        [8, 45],
+        [9, 50],
+        [10, 55]
     ];
 
-    $objArrayGraph = new TArrayGraphHandler($arrayData);
+    $filename = 'area_chart_complex.png';
+    $img_alt = 'Area Chart Complex';
+}
+
+    /*
+    <ENGLISH> Create an object with data
+    <GREEK> Δημιουργία αντικειμένου με δεδομένα
+    */
+    $objArrayGraph = new TArrayGraphHandler($arrayData, [
+        'width' => 800, 
+        'height' => 600, 
+        'fontPath' => $afw_examples_fonts.'/Noto/NotoSans-Regular.ttf',
+        'showValues' => true, // Ενεργοποίηση εμφάνισης τιμών
+        'colorIndex' => 14 // Επιλογή χρώματος: 0=Red, 1=Green, 2=Blue, 3=Yellow, 4=Cyan, 5=Magenta, 6=Maroon, 7=Dark Green, 8=Navy, 9=Olive, 10=Purple, 11=Teal, 12=Orange, 13=Pink, 14=Indigo, 15=Deep Pink
+    ]);
 
     /*
     <ENGLISH> Create an area diagram and save to a file
     <GREEK> Δημιουργία διαγράμματος περιοχής και αποθήκευση σε αρχείο
     */   
-    $objArrayGraph->createAreaChart('area_chart_complex.png');
+    $objArrayGraph->createAreaChart($filename);
 
-    
     /*
     <ENGLISH> Display the image to the user
     <GREEK> Εμφάνιση της εικόνας στον χρήστη
     */
-    echo '<img src="area_chart_complex.png" alt="Area Chart">';
-}
-
+    echo '<img src="'.$filename.'" alt="'.$img_alt.'">';
 ?>
