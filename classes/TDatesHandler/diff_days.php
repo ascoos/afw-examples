@@ -18,7 +18,7 @@
  *
  * @package            	: ASCOOS FRAMEWORK Examples
  * @subpackage         	: Finds the difference in days between two dates
- * @source             	: afw-examples/classes/TNetwork/diff_days.php
+ * @source             	: afw-examples/classes/TDatesHandler/diff_days.php
  * @fileNo             	: 
  * @version            	: 24.0.5
  * @created            	: 2024-12-10 07:00:00 UTC+3 
