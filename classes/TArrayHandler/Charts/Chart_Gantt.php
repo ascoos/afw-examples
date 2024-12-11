@@ -20,9 +20,9 @@
  * @subpackage         	: Creates a Gantt chart from the array data.
  * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Gantt.php
  * @fileNo             	: 
- * @version            	: 24.0.4
- * @created            	: 2024-12-05 07:00:00 UTC+3 
- * @updated            	:  
+ * @version            	: 24.0.5
+ * @created            	: 2024-12-05 07:00:00 UTC+3
+ * @updated            	: 2024-12-10 07:00:00 UTC+3
  * @author             	: Drogidis Christos
  * @authorSite         	: www.alexsoft.gr
  * @license 			: AGL-F
@@ -32,7 +32,7 @@
 require_once '../../../autoload.php';
 require_once "$afw_path/extras/arrays/TArrayGraphHandler.php";
 
-use ASCOOS\FRAMEWORK\Arrays\Extras\Graphs\TArrayGraphHandler;
+use ASCOOS\FRAMEWORK\Extras\Arrays\Graphs\TArrayGraphHandler;
 
 /*
 <ENGLISH>   Data for the Gantt chart

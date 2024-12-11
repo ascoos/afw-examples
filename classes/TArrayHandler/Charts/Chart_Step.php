@@ -20,9 +20,9 @@
  * @subpackage         	: Creates a step chart from the array data.
  * @source             	: afw-examples/classes/TArrayHandler/Charts/Chart_Step.php
  * @fileNo             	: 
- * @version            	: 24.0.4
- * @created            	: 2024-12-05 07:00:00 UTC+3 
- * @updated            	:  
+ * @version            	: 24.0.5
+ * @created            	: 2024-12-05 07:00:00 UTC+3
+ * @updated            	: 2024-12-10 07:00:00 UTC+3
  * @author             	: Drogidis Christos
  * @authorSite         	: www.alexsoft.gr
  * @license 			: AGL-F
@@ -32,7 +32,7 @@
 require_once '../../../autoload.php';
 require_once "$afw_path/extras/arrays/TArrayGraphHandler.php";
 
-use ASCOOS\FRAMEWORK\Arrays\Extras\Graphs\TArrayGraphHandler;
+use ASCOOS\FRAMEWORK\Extras\Arrays\Graphs\TArrayGraphHandler;
 
 
 /*
@@ -64,7 +64,7 @@ $objArrayGraph = new TArrayGraphHandler($arrayData, [
     'fontPath' => $afw_examples_fonts.'/Murecho/Murecho-Regular.ttf', 
     'backgroundColorIndex' => 1, // 0=Black, 1=White, 2=Red, 3=Green, 4=Blue, 5=Yellow, 6=Cyan, 7=Magenta, 8=Maroon, 9=Dark Green, 10=Navy, 11=Olive, 12=Purple, 13=Teal, 14=Orange, 15=Pink, 16=Indigo, 17=Deep Pink
     'lineColorIndex' => 0, // Δείκτης χρώματος για τις γραμμές
-    'showAxes' => true // Προαιρετική εμφάνιση άξονων
+    'showAxes' => true // Προαιρετική εμφάνιση αξόνων
 ]);
 
 /*
