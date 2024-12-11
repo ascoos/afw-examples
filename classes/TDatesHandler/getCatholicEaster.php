@@ -37,7 +37,7 @@ use ASCOOS\FRAMEWORK\Kernel\Dates\TDatesHandler;
     <English>   Create a TDatesHandler object with a "Europe/Athens" time zone
     <Greek>     Δημιουργία αντικειμένου TDatesHandler με ζώνη ώρας "Europe/Athens"
 */
-$objDatesHandler = new TDatesHandler('Europe/Athens');
+$objDates = new TDatesHandler('Europe/Athens');
 echo "Class Initialized with Timezone: Europe/Athens<br><hr>"; 
 
 /*
@@ -45,9 +45,9 @@ echo "Class Initialized with Timezone: Europe/Athens<br><hr>";
     <Greek>     Παράδειγμα χρήσης: getCatholicEaster
 */
 $year = 2024;
-$catholicEaster = $objDatesHandler->getCatholicEaster($year);
+$catholicEaster = $objDates->getCatholicEaster($year);
 echo "Catholic Easter in $year: $catholicEaster<br>";  // Output: Catholic Easter in 2024: YYYY-MM-DD
 
-$objDatesHandler->Free($objDatesHandler);
+$objDates->Free($objDates);
 
 ?>

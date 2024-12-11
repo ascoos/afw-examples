@@ -36,12 +36,12 @@ use ASCOOS\FRAMEWORK\Kernel\Dates\TDatesHandler;
     <English>   Create a TDatesHandler object with a "Europe/Athens" time zone
     <Greek>     Δημιουργία αντικειμένου TDatesHandler με ζώνη ώρας "Europe/Athens"
 */
-$objDatesHandler = new TDatesHandler('Europe/Athens');
+$objDates = new TDatesHandler('Europe/Athens');
 echo "Class Initialized with Timezone: Europe/Athens<br><hr>";  
 
 $birthdate = "2000-01-01";
-$age = $objDatesHandler->getAge($birthdate);
+$age = $objDates->getAge($birthdate);
 echo "Age calculated from birthdate $birthdate: $age years<br>";  // Output: Age calculated from birthdate 2000-01-01: XX years
 
-$objDatesHandler->Free($objDatesHandler);
+$objDates->Free($objDates);
 ?>

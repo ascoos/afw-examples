@@ -37,7 +37,7 @@ use ASCOOS\FRAMEWORK\Kernel\Dates\TDatesHandler;
     <English>   Create a TDatesHandler object with a "Europe/Athens" time zone
     <Greek>     Δημιουργία αντικειμένου TDatesHandler με ζώνη ώρας "Europe/Athens"
 */
-$objDatesHandler = new TDatesHandler('Europe/Athens');
+$objDates = new TDatesHandler('Europe/Athens');
 echo "Class Initialized with Timezone: Europe/Athens<br><hr>"; 
 
 
@@ -47,16 +47,16 @@ $year = 2024;
     <English>   Example use: getOrthodoxEaster for the new calendar (Gregorian)
     <Greek>     Παράδειγμα χρήσης: getOrthodoxEaster για το νέο ημερολόγιο (Γρηγοριανό)
 */
-$orthodoxEasterNew = $objDatesHandler->getOrthodoxEaster($year, false);
+$orthodoxEasterNew = $objDates->getOrthodoxEaster($year, false);
 echo "Orthodox Easter in $year (New Calendar): $orthodoxEasterNew<br>";  // Output: Orthodox Easter in 2024 (New Calendar): YYYY-MM-DD
 
 /*
     <English>   Example use: getOrthodoxEaster for the old calendar (Julian)
     <Greek>     Παράδειγμα χρήσης: getOrthodoxEaster για το παλαιό ημερολόγιο (Ιουλιανό)
 */
-$orthodoxEasterOld = $objDatesHandler->getOrthodoxEaster($year, true);
+$orthodoxEasterOld = $objDates->getOrthodoxEaster($year, true);
 echo "Orthodox Easter in $year (Old Calendar): $orthodoxEasterOld<br>";  // Output: Orthodox Easter in 2024 (Old Calendar): YYYY-MM-DD
 
-$objDatesHandler->Free($objDatesHandler);
+$objDates->Free($objDates);
 
 ?>

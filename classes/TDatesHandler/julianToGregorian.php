@@ -37,12 +37,12 @@ use ASCOOS\FRAMEWORK\Kernel\Dates\TDatesHandler;
     <English>   Create a TDatesHandler object with a "Europe/Athens" time zone
     <Greek>     Δημιουργία αντικειμένου TDatesHandler με ζώνη ώρας "Europe/Athens"
 */
-$objDatesHandler = new TDatesHandler('Europe/Athens');
+$objDates = new TDatesHandler('Europe/Athens');
 echo "Class Initialized with Timezone: Europe/Athens<br><hr>"; 
 
 $julianDate = "2024-03-15";
-$gregorianDate = $objDatesHandler->julianToGregorian($julianDate);
+$gregorianDate = $objDates->julianToGregorian($julianDate);
 echo "Gregorian date for Julian $julianDate: $gregorianDate\n";  // Output: Gregorian date for Julian 2023-03-15: YYYY-MM-DD
 
-$objDatesHandler->Free($objDatesHandler);
+$objDates->Free($objDates);
 ?>

@@ -37,22 +37,22 @@ use ASCOOS\FRAMEWORK\Kernel\Dates\TDatesHandler;
     <English>   Create a TDatesHandler object with a "Europe/Athens" time zone
     <Greek>     Δημιουργία αντικειμένου TDatesHandler με ζώνη ώρας "Europe/Athens"
 */
-$objDatesHandler = new TDatesHandler('Europe/Athens');
+$objDates = new TDatesHandler('Europe/Athens');
 echo "Class Initialized with Timezone: Europe/Athens<br><hr>"; 
 
 /*
     <English>   We take the current date
     <Greek>     Παίρνουμε την τρέχουσα ημερομηνία
 */
-$currentDate = $objDatesHandler->getCurrentDate("Y-m-d");
+$currentDate = $objDates->getCurrentDate("Y-m-d");
 echo "Current Date: $currentDate<br>";  // Output: Current Date: YYYY-MM-DD
 
 /*
     <English>   Example of using getCurrentDate with a different format
     <Greek>     Παράδειγμα χρήσης getCurrentDate με διαφορετικό μορφότυπο
 */
-$currentDateFormatted = $objDatesHandler->getCurrentDate("d/m/Y");
+$currentDateFormatted = $objDates->getCurrentDate("d/m/Y");
 echo "Current Date in format d/m/Y: $currentDateFormatted<br>";  // Output: Current Date in format d/m/Y: DD/MM/YYYY
 
-$objDatesHandler->Free($objDatesHandler);
+$objDates->Free($objDates);
 ?>

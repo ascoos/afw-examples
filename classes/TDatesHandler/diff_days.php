@@ -36,13 +36,13 @@ use ASCOOS\FRAMEWORK\Kernel\Dates\TDatesHandler;
     <English>   Create a TDatesHandler object with a "Europe/Athens" time zone
     <Greek>     Δημιουργία αντικειμένου TDatesHandler με ζώνη ώρας "Europe/Athens"
 */
-$objDatesHandler = new TDatesHandler('Europe/Athens');
+$objDates = new TDatesHandler('Europe/Athens');
 echo "Class Initialized with Timezone: Europe/Athens<br><hr>"; 
 
 $startDate = "2024-01-01";
 $endDate = "2024-12-10";
-$daysDifference = $objDatesHandler->diff_days($startDate, $endDate);
+$daysDifference = $objDates->diff_days($startDate, $endDate);
 echo "Difference in days between $startDate and $endDate: $daysDifference days<br>";  // Output: 344 days
 
-$objDatesHandler->Free($objDatesHandler);
+$objDates->Free($objDates);
 ?>

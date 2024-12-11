@@ -37,7 +37,7 @@ use ASCOOS\FRAMEWORK\Kernel\Dates\TDatesHandler;
     <English>   Create a TDatesHandler object with a "Europe/Athens" time zone
     <Greek>     Δημιουργία αντικειμένου TDatesHandler με ζώνη ώρας "Europe/Athens"
 */
-$objDatesHandler = new TDatesHandler('Europe/Athens');
+$objDates = new TDatesHandler('Europe/Athens');
 echo "Class Initialized with Timezone: Europe/Athens<br><hr>";  
 
 // Παράδειγμα χρήσης: addDays
@@ -45,11 +45,11 @@ echo "Class Initialized with Timezone: Europe/Athens<br><hr>";
     <English>   We take the current date and add 10 days
     <Greek>     Παίρνουμε την τρέχουσα ημερομηνία και προσθέτουμε 10 ημέρες
 */
-$date = $objDatesHandler->getCurrentDate("Y-m-d");
+$date = $objDates->getCurrentDate("Y-m-d");
 echo "Current Date: $date<br>";  // Output: Current Date: YYYY-MM-DD
 $daysToAdd = 10;
-$newDate = $objDatesHandler->addDays($date, $daysToAdd);
+$newDate = $objDates->addDays($date, $daysToAdd);
 echo "New Date after adding $daysToAdd days: $newDate<br>";
 
-$objDatesHandler->Free($objDatesHandler);
+$objDates->Free($objDates);
 ?>

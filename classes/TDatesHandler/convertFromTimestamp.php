@@ -36,10 +36,10 @@ use ASCOOS\FRAMEWORK\Kernel\Dates\TDatesHandler;
     <English>   Create a TDatesHandler object with a "Europe/Athens" time zone
     <Greek>     Δημιουργία αντικειμένου TDatesHandler με ζώνη ώρας "Europe/Athens"
 */
-$objDatesHandler = new TDatesHandler('Europe/Athens');
+$objDates = new TDatesHandler('Europe/Athens');
 echo "Class Initialized with Timezone: Europe/Athens<br><hr>";  
 
 $timestamp = 1733806800;
-$dateFromTimestamp = $objDatesHandler->convertFromTimestamp($timestamp);
+$dateFromTimestamp = $objDates->convertFromTimestamp($timestamp);
 echo "Date from Timestamp: $dateFromTimestamp<br>";  // Output: 2024-12-10 07:00:00
 ?>
